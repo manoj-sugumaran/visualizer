@@ -1,0 +1,131 @@
+<div class="modal-dialog">
+    <ng-template #teaserModal let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Song Teaser</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+                <textarea id="emojionearea1"></textarea>
+                <!-- <div [froalaEditor]='options' [(froalaModel)]="teaser" ></div> -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button> 
+            <button type="button" class="btn btn-primary" (click)="saveTeaser()" >Save changes</button>            
+        </div>       
+    </ng-template>
+</div>
+<div class="modal-dialog">
+        <ng-template #triviaModal let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title">Song Trivia</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div [froalaEditor]='options' [(froalaModel)]="trivia"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button> 
+                <button type="button" class="btn btn-primary" (click)="saveTrivia()" >Save changes</button>
+            </div>       
+        </ng-template>
+    </div>
+<div class="main-content">
+        <div class="container-fluid">
+            <div class="card card-chart">
+                <div class="card-body">
+                    <div class="row">  
+                        <div class="col-sm-2">
+                            <img src="{{artworkurl}}{{content.artworkurl}}"  onError="this.src='./assets/img/onmo.png';" alt="Smiley face" class= "img-fluid"/>
+                        </div>
+                        <div class="col-lg-10">
+                                <h4><b>{{content.songname}}</b></h4>
+                                <p>Released by {{content.label_name}}</p>
+                                <div><h4>&nbsp;</h4></div>
+                                <button (click)="play()" mat-raised-button class="btn btn-round btn-danger">
+                                        <i class="material-icons">play_circle_filled</i>
+                                </button>
+                                &nbsp;
+                                <button (click)="pause()" mat-raised-button class="btn btn-round btn-danger">
+                                        <i class="material-icons">pause_circle_filled</i>
+                                </button>
+                        </div>    
+                    </div>
+                    <hr>
+    
+                    <div class="row">  
+                            <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Content ID
+                                            </th>
+                                            <th>
+                                                Song Name
+                                            </th>
+                                            <th>
+                                                Singer
+                                            </th>
+                                            <th>
+                                                Song Tags
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    {{content.contentid}}
+                                                </td>
+                                                <td>
+                                                    <div [innerHTML]="content.songname"></div>
+                                                </td>
+                                                <td>
+                                                    <div [innerHTML]="content.singer"></div>
+          
+                                                </td>
+                                                <td>
+                                                    <div [innerHTML]="content.song_tags"></div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                    </div>
+    
+                    <div class="row" *ngIf="display()">  
+                            <div class="table-responsive">
+                                    <table class="table">
+                                        <thead class=" text-primary">
+                                            <th>
+                                                Song Teaser
+                                            </th>
+                                            <th>
+                                                Song Trivia
+                                            </th>
+                                            <th>
+                                                Context Date
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div [innerHTML]="content.song_teaser | emoji"></div><button type='button' class='btn btn-primary' (click)="openTeaser(teaserModal)">Edit</button>
+                                                </td>
+                                                <td>
+                                                        <div [innerHTML]="content.song_trivia | emoji"></div><button type='button' class='btn btn-primary' (click)="openTrivia(triviaModal)">Edit</button>
+                                                </td>
+                                                <td>
+                                                        {{ content.context_start_date | date: 'dd/MM/yyyy'}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                        </div>
+                </div>
+            </div>   
+        </div>
+    </div>    
+    

@@ -1,0 +1,85 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Sign Up</h4>
+                      <!-- <p class="card-category">Complete your profile</p> -->
+                  </div>
+                  <div class="card-body">
+                      <form [formGroup]="signupForm" (ngSubmit)="onSignUp(f)" #f="ngForm">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email address" type="email" name = "email" formControlName="email" ngModel required  >
+                                    <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="help-block"> enter a valid Email </span>
+                                  </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Password" name = "password" formControlName="password" type="password" ngModel required >
+                                    <span *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="help-block"> password must be minimum 6 charcaters </span>
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="fname" placeholder="First Name" formControlName="fname" type="text" ngModel required >
+                                  <span *ngIf="!signupForm.get('fname').valid && signupForm.get('fname').touched" class="help-block"> Name must be minimum 3 charcaters </span>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="lname" placeholder="Last Name" formControlName="lname" type="text" ngModel required >
+                                  <span *ngIf="!signupForm.get('lname').valid && signupForm.get('lname').touched" class="help-block"> Last Namw must be minimum 3 charcaters </span>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <!-- <div class="row">
+                              <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput [(ngModel)]="formAddress" name="formFname" placeholder="Address" type="text">
+                                </mat-form-field>
+                              </div>
+                          </div> -->
+                          <div class="row">
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="city" formControlName="city" placeholder="City" type="text" ngModel required >
+                                  <span *ngIf="!signupForm.get('city').valid && signupForm.get('city').touched" class="help-block"> city cannot be empty </span>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput name="country" formControlName="country" placeholder="Country" type="text" ngModel required >
+                                  <span *ngIf="!signupForm.get('country').valid && signupForm.get('country').touched" class="help-block"> country cannot be empty </span>
+                                </mat-form-field>
+                              </div>
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input  matInput name="postal" formControlName="postal" placeholder="Postal Code" type="text" ngModel required >
+                                  <span *ngIf="!signupForm.get('postal').valid && signupForm.get('postal').touched" class="help-block"> postal cannot be empty </span>
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <!-- <div class="row">
+                              <div class="col-md-12">
+                                <label>About Me</label>
+                                <mat-form-field class="example-full-width">
+                                   <textarea matInput placeholder="Adapt what is useful, reject what is useless, and add what is specifically your own." name= "aboutme" ngModel > </textarea>
+                                 </mat-form-field>
+                              </div>
+                          </div> -->
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-left">Register</button>
+                          <button [routerLink]="['/login']" mat-raised-button class="btn btn-danger pull-right">Login</button>
+
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

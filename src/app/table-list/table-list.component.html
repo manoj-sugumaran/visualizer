@@ -1,0 +1,64 @@
+<div class="main-content">
+
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Tags Table</h4>
+                      <p class="card-category"> Tags and their respective types</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Channel ID
+                                  </th>
+                                  <th>
+                                      Name
+                                  </th>
+                                  <th>
+                                      Type
+                                  </th>
+                              </thead>
+                              <tbody>
+                                <ng-container *ngFor="let c of channels">
+                                  <tr>
+                                      <td>
+                                          {{c.channelid}}
+                                      </td>
+                                      <td>
+                                          {{c.name}}
+                                      </td>
+                                      <td>
+                                          {{c.type}}
+
+                                      </td>
+                                  </tr>
+                                </ng-container>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--config-->
+      <div class="row">
+            <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-danger">
+                            <h4 class="card-title ">Config Table</h4>
+                            <p class="card-category"> Configuration urls of app </p>
+                        </div>
+                        <div class="card-body">
+                            <ng2-smart-table [settings]="settingsConfig" [source]="sourceConfig" (deleteConfirm)="onDeleteConfig($event)" 
+                            (editConfirm)="onSaveConfig($event)"
+                            (createConfirm)="onCreateConfig($event)"></ng2-smart-table>
+                        </div>
+                    </div>
+            </div>
+      </div>
+  </div>
+</div>

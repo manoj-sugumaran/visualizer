@@ -1,0 +1,27 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+        <ng-container *ngFor="let c of content; let i = index;">
+            <div class="col-lg-3 size">
+                <div class="card card-chart">
+                        <!-- <div class="card-header card-header-success"> -->
+                            <!-- <div><img src="../../assets/img/shark.png" alt="Smiley face" height="42" width="42"/>/div> -->
+                        <!-- </div> -->
+                     <div class="card-body">
+                        <img (click)="info(c)" src="{{artwork}}{{c.artworkurl}}"  onError="this.src='./assets/img/onmo.png';" alt="Smiley face" class= "img-fluid"/>
+                        <!-- <h4 class="card-title">{{c.songname}}</h4> -->
+                        <b><div (click)="info(c)">{{c.songname}}</div></b>
+                    </div>
+                        <p class="card-category">
+                        <a class="nav-link" >
+                        <button class="nav-link" [routerLink]="['/music', c.song_tags]" mat-raised-button class="btn btn-info pull-down">{{c.song_tags}}</button>
+                        <button *ngIf="c.context_start_date!=null" class='btn btn-light disabled pull-right'>{{ c.context_start_date | date: 'dd MMM yyyy'}}</button>
+                        </a>                        
+                        </p>
+                </div>
+            </div>
+            <div class="clearfix" *ngIf="(i+1) % 4 == 0"></div>
+        </ng-container>
+      </div>
+  </div>
+</div>
