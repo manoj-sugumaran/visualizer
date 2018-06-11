@@ -4,15 +4,15 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   firebase: {
-    apiKey: "AIzaSyACIKkJUOegHAwK7dnBHCvAtb3p1cwet4w",
-    authDomain: "testproject-cc509.firebaseapp.com",
-    databaseURL: "https://testproject-cc509.firebaseio.com",
-    projectId: "testproject-cc509",
-    storageBucket: "testproject-cc509.appspot.com",
-    messagingSenderId: "939401655317"
+    apiKey: "asddsadsadasdasdasdsa",
+    authDomain: "asdsadsadsadasdas9.firebaseapp.com",
+    databaseURL: "https://asdsdasdasdsadas.firebaseio.com",
+    projectId: "asdasdasdasdasdasdas",
+    storageBucket: "asdasdasdasdas.appspot.com",
+    messagingSenderId: "123312321321321"
   },
-  baseUrl: 'http://dis.onmo.com/ringtone/',
-  artworkUrl: 'https://prodvolt.use.express.onmo.com/catalog/v3/image?width=500&target=s3://omd2cnamatlantis/ARTWORK/'
+  baseUrl: 'http://baseurl/',
+  artworkUrl: 'https://imageurl/catalog/v3/image?width=500&target=s3://bucketname/ARTWORK/'
 };
